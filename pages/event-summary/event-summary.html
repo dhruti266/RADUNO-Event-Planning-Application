@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Event Summary</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-img width="330" height="250" src="{{ greeting }}"></ion-img>
+
+  <div text-left padding>
+    <ion-list>
+      <ion-item-sliding #item *ngFor="let contact of contactList">
+        <ion-item>
+          {{ contact['name'] }} : {{ contact['phone'] }}
+        </ion-item>
+
+        <ion-item-options side="right">
+          <button ion-button class="bar-button-md-danger" (click)="removeContact(contact)"><ion-icon name="trash"></ion-icon> </button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <div text-center>
+    <button  ion-button  color="primary" (click)="saveGreeting()" type="submit">Confirm & Send</button>
+  </div>
+
+</ion-content>

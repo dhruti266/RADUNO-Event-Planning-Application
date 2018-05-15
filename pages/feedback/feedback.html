@@ -1,0 +1,40 @@
+<header pageTitle="Rating and Feedback"></header>
+
+<ion-content padding>
+  <br><br><br>
+  <ion-grid text-center>
+    <ion-row>
+      <ion-col col-12>
+        <ion-label>Rate Us</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <rating [(ngModel)]="rate"
+                readOnly="false"
+                max="5"
+                emptyStarIconName="star-outline"
+                halfStarIconName="star-half"
+                starIconName="star"
+                nullable="false"
+                (ngModelChange)="onModelChange($event)">
+        </rating>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-label>Write Us A Feedback</ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <ion-textarea [(ngModel)]="comment" placeholder="Write your feedback here"></ion-textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12>
+        <button  ion-button  color="primary" (click)="submitFeedback()">Submit</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,35 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding id="login">
+  <div>
+    <ion-img src="assets/imgs/logo.png" class="navLogo"></ion-img>
+  </div>
+
+  <h1> Welcome to Raduno</h1>
+
+  <form [formGroup]="loginGroup">
+    <ion-item>
+      <ion-label>Email :</ion-label>
+      <ion-input formControlName="email" type="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!email.valid && email.touched">*Email is required</div>
+    <ion-item>
+      <ion-label>Password :</ion-label>
+      <ion-input formControlName="password" type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!password.valid && password.touched">*You must specify valid password between 6 to 15 characters long</div>
+    <br>
+    <div class="loginBtn">
+      <button ion-button block color="dark" (click)="login(user)">Login</button>
+    </div>
+  </form>
+  <br>
+  <a (click)="forgot()" class="forgot" >Forgot password? </a><br><br>
+  <a class="register" (click)="register()"> Don't have an account?</a>
+</ion-content>

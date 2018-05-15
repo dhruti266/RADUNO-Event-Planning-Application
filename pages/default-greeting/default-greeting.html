@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+  <ion-toolbar>
+    <ion-title>
+      Default Greeting
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="light">Cancel</span>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <ion-grid>
+      <ion-row text-center>
+      </ion-row>
+      <ion-row>
+        <ion-col col-12>
+          <ion-card *ngFor="let image of imageList">
+            <ion-card-title text-center>
+              {{ image.title }}
+            </ion-card-title>
+            <img [src]="image.url" width="350" height="250"/>
+            <ion-card-content>
+              <div text-center>
+                <button  ion-button full (click)="getSelectedCard(image)">Select</button>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

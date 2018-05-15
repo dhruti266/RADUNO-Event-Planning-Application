@@ -1,0 +1,51 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding id="register">
+  <p>
+    <ion-img src="assets/imgs/logo.png" class="navLogo"></ion-img>
+  </p>
+  <h1> Account Registration</h1>
+  <form [formGroup]="registerFormGroup">
+    <ion-item>
+      <ion-label>Full Name :</ion-label>
+      <ion-input formControlName="fname" [(ngModel)]="profile.name" type="text"></ion-input>
+    </ion-item>
+    <div class="danger" *ngIf="!registerFormGroup.controls['fname'].valid && registerFormGroup.controls['fname'].touched">*Valid full name is required and max 30 characters long</div>
+    <ion-item>
+      <ion-label>Username :</ion-label>
+      <ion-input formControlName="username" [(ngModel)]="profile.username"  type="text"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!registerFormGroup.controls['username'].valid && registerFormGroup.controls['username'].touched">*Valid  username is required and max 15 character long</div>
+    <ion-item>
+      <ion-label>Email :</ion-label>
+      <ion-input formControlName="email" type="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!registerFormGroup.controls['email'].valid && registerFormGroup.controls['email'].touched">*Valid email is required and max 35 character long</div>
+    <ion-item>
+      <ion-label>Password :</ion-label>
+      <ion-input formControlName="password" type="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!registerFormGroup.controls['password'].valid && registerFormGroup.controls['password'].touched">*You must specify password between 6 to 15 characters long</div>
+    <ion-item>
+      <ion-label>Phone Number :</ion-label>
+      <ion-input formControlName="phone" [(ngModel)]="profile.phone"  type="number"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!registerFormGroup.controls['phone'].valid && registerFormGroup.controls['phone'].touched">*Phone is required with valid phone format</div>
+    <ion-item>
+      <ion-label>Date of Birth :</ion-label>
+      <ion-datetime displayFormat="MM/DD/YYYY"  min="1920" max="2004" formControlName="dob" [(ngModel)]="profile.dob"></ion-datetime>
+    </ion-item>
+    <div  class="danger" *ngIf="!registerFormGroup.controls['dob'].valid && registerFormGroup.controls['dob'].touched">*Min age should be 14 for creating an account</div>
+    <br>
+    <div class="registerBtn">
+      <button ion-button color="dark" (click)="register(user, profile)" type="submit">Register</button>
+      <a ion-button color="secondary" (click)="showLogin()">Login</a>
+    </div>
+  </form>
+
+</ion-content>
+

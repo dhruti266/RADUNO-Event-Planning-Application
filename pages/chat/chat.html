@@ -1,0 +1,35 @@
+<header pageTitle="Chat"></header>
+<ion-content padding>
+  <br><br><br>
+  <ion-item *ngIf="listedEvents.length>0; else content">
+    <ion-select  [(ngModel)]="selectedEventKey" (ngModelChange)="selectEventForChat()">
+      <ion-option selected disabled>No event selected</ion-option>
+      <div *ngFor="let ev of listedEvents">
+        <ion-option [value]="ev.key">{{ev["title"]}}</ion-option>
+      </div>
+    </ion-select>
+  </ion-item>
+  <div id="chatMessages">
+    <div class="message" *ngFor="let message of messages">
+      <div  [class]="message.uid == currUser.uid ? 'innerMessage messageRight' : 'innerMessage messageLeft'">
+        <div class="username">{{ message.name }}</div>
+        <div class="message">{{ message.message }}</div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10>
+        <ion-input type="text" [(ngModel)]="message" placeholder="Type here..."></ion-input>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button icon-only (click)="sendMessage()">
+          <ion-icon name="send"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

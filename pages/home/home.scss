@@ -1,0 +1,12 @@
+page-home {
+  ion-fab { position: absolute; bottom: 30px; right: 50px; }
+  ion-slide{
+    background-color: color($colors, light);
+    color: color($colors, primary);
+    font-size: 2em;
+    font-family: sans-serif;
+  }
+  ion-slides{
+    height: 220px;
+  }
+}

@@ -1,0 +1,23 @@
+<header pageTitle="Settings"></header>
+
+<ion-content padding>
+  <br><br><br>
+  <ion-item>
+    <ion-label>Notifications</ion-label>
+    <ion-toggle [(ngModel)]="notifications" (ionChange)="updateItem()"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Language</ion-label>
+    <ion-select [(ngModel)]="language">
+      <ion-option [selected]="true" value="eng">English</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Location</ion-label>
+    <ion-select [(ngModel)]="location">
+      <ion-option [selected]="true" value="ca">Canada</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

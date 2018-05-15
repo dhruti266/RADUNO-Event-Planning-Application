@@ -1,0 +1,42 @@
+page-chat {
+  ion-select{
+    max-width: 70% !important;
+  }
+  .innerMessage{
+    display: inline-block;
+    padding: 5px 10px;
+    background: color($colors, 'primary');
+    margin: 5px;
+    color: white;
+    border-radius: 3px;
+  }
+
+  .innerMessage.messageLeft{
+    background: color($colors, light);
+    color: color($colors, 'primary') ;
+  }
+
+  .username{
+    font-weight: bold;
+    font-size: 80%;
+  }
+
+  .message{
+    font-size: 120%;
+  }
+
+  .message:after{
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .messageLeft{
+    float:left;
+  }
+
+  .messageRight{
+    float:right;
+  }
+
+}

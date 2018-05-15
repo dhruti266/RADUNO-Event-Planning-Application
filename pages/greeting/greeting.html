@@ -1,0 +1,47 @@
+<header pageTitle="Greeting"></header>
+
+<ion-content id="greeting" padding>
+  <ion-item>
+    <ion-label>Font Color: </ion-label>
+    <ion-select [(ngModel)]="selectedFontColor" (ngModelChange)="getSelectedFontColor()">
+      <ion-option selected="">Select</ion-option>
+      <div *ngFor="let color of colors">
+        <ion-option [value]="color.colorCode">{{color.colorName}}</ion-option>
+      </div>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Background Color: </ion-label>
+    <ion-select [(ngModel)]="selectedBackColor" (ngModelChange)="getSelectedBackColor()">
+      <ion-option selected="">Select</ion-option>
+      <div *ngFor="let color of colors">
+        <ion-option [value]="color.colorCode">{{color.colorName}}</ion-option>
+      </div>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Font Family: </ion-label>
+    <ion-select [(ngModel)]="selectedFontFamily" (ngModelChange)="getSelectedFontFamily()">
+      <ion-option selected="">Select</ion-option>
+      <div *ngFor="let item of fontFamily">
+        <ion-option [value]="item">{{item}}</ion-option>
+      </div>
+    </ion-select>
+  </ion-item>
+  <div>
+    <canvas id="canvas" width="330" height="250" style="border: 1px solid #ccc"></canvas>
+  </div>
+  <img src="" id="img"/>
+  <button ion-button  color="light" (click)="addText()">T</button>
+  <button ion-button color="light" ><ion-icon name="md-images" (click)="getMedia()"></ion-icon></button>
+  <button ion-button color="light" ><ion-icon name="md-trash" (click)="removeText()"></ion-icon></button>
+  <button ion-button color="light" (click)="clearCanvasBackground()">Clear Background</button>
+
+  <div text-center>
+    <button  ion-button  color="primary" (click)="useDefaultGreeting()" type="submit">Use Default</button>
+    <button  ion-button  color="primary" (click)="saveGreeting()" type="submit">Save and Next</button>
+  </div>
+</ion-content>
+

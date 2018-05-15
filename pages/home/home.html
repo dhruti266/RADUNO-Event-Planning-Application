@@ -1,0 +1,42 @@
+
+<header pageTitle="Dashboard"></header>
+<ion-content padding>
+  <br><br><br>
+  <ion-slides>
+    <ion-slide>
+      <h1>Welcome to Raduno</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>the one stop solution</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>for planning events and parties</h1>
+    </ion-slide>
+  </ion-slides>
+  <ion-list *ngFor="let pendingEvent of pendingEvents">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="{{pendingEvent.greetingCard}}">
+      </ion-thumbnail>
+      <h2>{{ pendingEvent.title }}</h2>
+      <button ion-button default float-right (click)="viewEvent(pendingEvent.key)">
+        View
+      </button>
+      <p>{{ pendingEvent.location }}</p>
+      <p>{{ pendingEvent.date }}</p>
+      <br>
+      <button ion-button default (click)="acceptInvitation(pendingEvent.key, pendingEvent.hostID)">
+        Accept
+      </button><button ion-button default  color="danger" (click)="declineInvitation(pendingEvent.key)">
+        Decline
+      </button>
+    </ion-item>
+  </ion-list>
+  <ion-fab>
+    <button ion-fab color="primary" (click)="gotoEventPage()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>
+
+

@@ -1,0 +1,70 @@
+<header pageTitle="Profile"></header>
+
+<ion-content padding *ngFor="let user of profile" id="profile">
+ <ion-grid>
+   <ion-row text-center>
+     <ion-col col-12 *ngIf="picData['i'];else other_content">
+       <img width="80" height="80" src="{{ picData['i'] }}">
+     </ion-col>
+     <ng-template #other_content>
+       <ion-col col-12>
+         <img width="80" height="80" src="assets/imgs/user-logo.png">
+       </ion-col>
+     </ng-template>
+     <ion-col col-12>
+       <h1>{{user["name"]}}</h1>
+     </ion-col>
+   </ion-row>
+   <ion-row text-left>
+     <ion-col ion-text col-5>
+       Username:
+     </ion-col>
+     <ion-col col-7>
+       {{user.username}}
+     </ion-col>
+   </ion-row>
+   <ion-row text-left>
+     <ion-col ion-text col-5>
+        Email:
+     </ion-col>
+     <ion-col col-7>
+       {{currUser.email}}
+     </ion-col>
+   </ion-row>
+   <ion-row text-left>
+     <ion-col col-5>
+       Password:
+     </ion-col>
+     <ion-col col-7>
+       *********
+     </ion-col>
+   </ion-row>
+   <ion-row text-left>
+     <ion-col col-5>
+       Phone Number:
+     </ion-col>
+     <ion-col col-7>
+       {{user.phone}}
+     </ion-col>
+   </ion-row>
+   <ion-row text-left>
+     <ion-col col-5>
+       Date of Birth:
+     </ion-col>
+     <ion-col col-7>
+       {{user.dob}}
+     </ion-col>
+   </ion-row>
+   <br>
+   <ion-row text-center>
+     <ion-col col-12>
+       <button ion-button (click)="editProfile()">Edit</button>
+     </ion-col>
+   </ion-row>
+   <!--<ion-row text-center>-->
+     <!--<ion-col col-12>-->
+       <!--<button ion-button color="danger" (click)="deleteAccount()">Delete Account</button>-->
+     <!--</ion-col>-->
+   <!--</ion-row>-->
+ </ion-grid>
+</ion-content>

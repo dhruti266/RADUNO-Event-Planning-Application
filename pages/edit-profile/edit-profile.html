@@ -1,0 +1,69 @@
+<header pageTitle="Edit Profile" edit="true"></header>
+
+<ion-content padding id="editProfile">
+
+  <form [formGroup]="editProfileFormGroup">
+    <ion-grid>
+      <ion-row text-center>
+        <ion-col col-12 *ngIf="picData['i'];else other_content">
+          <img width="80" height="80" src="{{ picData['i'] }}">
+        </ion-col>
+      <ng-template #other_content>
+        <ion-col col-12 text-center>
+           <img width="80" height="80" src="assets/imgs/user-logo.png">
+        </ion-col>
+      </ng-template>
+      </ion-row>
+      <ion-row text-center>
+        <ion-col col-5>
+          <div>
+            <button ion-button round outline (click)="getMedia()">Upload..</button>
+          </div>
+        </ion-col>
+        <ion-col col-2></ion-col>
+        <ion-col col-5>
+          <div>
+            <button ion-button round outline (click)="takePic()">Take..</button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-item>
+      <ion-label>Full Name :</ion-label>
+      <ion-input formControlName="name" [(ngModel)]="editProfile.name" type="text" [value]="editProfile.name"></ion-input>
+    </ion-item>
+    <div class="danger" *ngIf="!editProfileFormGroup.controls['name'].valid && editProfileFormGroup.controls['name'].touched">*Valid full name is required and max 30 characters long</div>
+    <ion-item>
+      <ion-label>Username :</ion-label>
+      <ion-input formControlName="username" [(ngModel)]="editProfile.username"  type="text" [value]="editProfile.username"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!editProfileFormGroup.controls['username'].valid && editProfileFormGroup.controls['username'].touched">*Valid  username is required and max 15 character long</div>
+    <ion-item>
+      <ion-label>Current Email : {{currUser.email}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>New Email :</ion-label>
+      <ion-input formControlName="email" type="email" [(ngModel)]="newEmail" [value]="newEmail"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!editProfileFormGroup.controls['email'].valid && editProfileFormGroup.controls['email'].touched">*Valid email is required and max 35 character long</div>
+    <ion-item>
+      <ion-label>New Password :</ion-label>
+      <ion-input formControlName="password" type="password" [(ngModel)]="newPassword"  [value]="newPassword"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!editProfileFormGroup.controls['password'].valid && editProfileFormGroup.controls['password'].touched">*You must specify password between 6 to 15 characters long</div>
+    <ion-item>
+      <ion-label>Phone Number :</ion-label>
+      <ion-input formControlName="phone" [(ngModel)]="editProfile.phone"  type="number" [value]="editProfile.phone"></ion-input>
+    </ion-item>
+    <div  class="danger" *ngIf="!editProfileFormGroup.controls['phone'].valid && editProfileFormGroup.controls['phone'].touched">*Phone is required with valid phone format</div>
+    <ion-item>
+      <ion-label>Date of Birth :</ion-label>
+      <ion-input formControlName="dob" [(ngModel)]="editProfile.dob"  [value]="editProfile.dob" type="text" readonly></ion-input>
+    </ion-item>
+    <br>
+    <div text-center class="registerBtn">
+      <button  ion-button  color="primary" (click)="updateProfile()" type="submit">Update</button>
+    </div>
+  </form>
+</ion-content>

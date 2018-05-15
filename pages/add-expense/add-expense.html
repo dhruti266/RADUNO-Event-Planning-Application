@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button block (click)="closeModal()">Close</button>
+    </ion-buttons>
+    <ion-title>Add New Expense</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding text-center="">
+    <ion-item>
+      <ion-label>Amount</ion-label>
+      <ion-input type="text" [(ngModel)]="expenseDetail.amount" name="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-textarea [(ngModel)]="expenseDetail.description" name="description"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date and Time: </ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYYTh:mm A" min="2018" pickerFormat="MMM DD YY h:mm A" [(ngModel)]="expenseDetail.date"></ion-datetime>
+    </ion-item>
+  <br>
+    <button ion-button type="submit" (click)="addExpense()">Add Expense</button>
+</ion-content>
+

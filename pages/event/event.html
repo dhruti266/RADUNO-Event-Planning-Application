@@ -1,0 +1,44 @@
+<header pageTitle="Event"></header>
+
+<ion-content padding id="event">
+  <form [formGroup]="EventFormGroup">
+    <ion-item text-center>
+      <ion-label>Event Title: </ion-label>
+      <ion-input type="text" formControlName="title" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <div class="danger" *ngIf="!EventFormGroup.controls['title'].valid && EventFormGroup.controls['title'].touched">*Valid title is required and min 5 characters long</div>
+    <ion-item>
+      <ion-label>Date and Time: </ion-label>
+      <ion-datetime displayFormat="MMM DD, YYYYTh:mm A" min="2018" pickerFormat="MMM DD YY h:mm A"  formControlName="date" [(ngModel)]="date"></ion-datetime>
+    </ion-item>
+    <div class="danger" *ngIf="!EventFormGroup.controls['date'].valid && EventFormGroup.controls['date'].touched">*Date and time should not be empty</div>
+    <ion-item text-center>
+      <ion-label>Location: </ion-label>
+      <ion-input type="text" placeholder="" formControlName="location" [(ngModel)]="location"></ion-input>
+    </ion-item>
+    <div class="danger" *ngIf="!EventFormGroup.controls['location'].valid && EventFormGroup.controls['location'].touched">*Valid location is required and max 30 characters long</div>
+    <ion-item text-center>
+      <ion-label>Estimated Budget: </ion-label>
+      <ion-input type="text" formControlName="budget" [(ngModel)]="budget" value=" "></ion-input>
+    </ion-item><br>
+    <div text-center>
+      <button ion-button (click)="getContacts()">Add Invitees</button>
+    </div>
+    <div text-left padding>
+      <ion-list>
+        <ion-item-sliding #item *ngFor="let contact of contactList">
+          <ion-item>
+            {{ contact['name'] }} : {{ contact['phone'] }}
+          </ion-item>
+
+          <ion-item-options side="right">
+            <button ion-button class="bar-button-md-danger" (click)="removeContact(contact)"><ion-icon name="trash"></ion-icon> </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </div>
+    <div text-center>
+      <button ion-button (click)="gotoGreetingPage()">Next</button>
+    </div>
+  </form>
+</ion-content>

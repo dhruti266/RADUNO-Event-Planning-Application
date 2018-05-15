@@ -1,0 +1,23 @@
+<ion-header>
+  <div *ngIf="edit;else other">
+    <ion-navbar #other>
+      <ion-title>
+        {{pageTitle}}
+      </ion-title>
+    </ion-navbar>
+  </div>
+  <ng-template #other>
+    <ion-navbar>
+      <button ion-button menuToggle>
+      <span class="button-inner">
+       <ion-icon name="menu" role="img" class="icon icon-ios ion-ios-menu" aria-label="menu"></ion-icon>
+      </span>
+        <div class="button-effect"></div>
+      </button>
+      <ion-title>
+        {{pageTitle}}
+      </ion-title>
+    </ion-navbar>
+  </ng-template>
+
+</ion-header>

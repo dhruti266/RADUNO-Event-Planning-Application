@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Event Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row text-center>
+      <ion-col col-12 *ngIf="picData;else other_content">
+        <img width="80" height="80" src="{{ picData }}">
+      </ion-col>
+      <ng-template #other_content>
+        <ion-col col-12>
+          <img width="220" src="{{currEvent['greetingCard']}}">
+        </ion-col>
+      </ng-template>
+      <ion-col col-12>
+        <h1>{{currEvent["title"]}}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row text-left>
+      <ion-col ion-text col-5>
+        Hosted By:
+      </ion-col>
+      <ion-col col-7>
+        {{hostUser["name"]}}
+      </ion-col>
+    </ion-row>
+    <ion-row text-left>
+      <ion-col ion-text col-5>
+        Location:
+      </ion-col>
+      <ion-col col-7>
+        {{currEvent["location"]}}
+      </ion-col>
+    </ion-row>
+    <ion-row text-left>
+      <ion-col col-5>
+        Date and Time:
+      </ion-col>
+      <ion-col col-7>
+        {{currEvent["date"]}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

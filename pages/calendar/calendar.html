@@ -1,0 +1,22 @@
+<header pageTitle="Calendar"></header>
+<ion-title>Calendar</ion-title>
+<ion-content padding id="calendar">
+
+  <ion-calendar #calendar  (onDaySelect)="onDaySelect($event)" ></ion-calendar>
+
+  <button ion-button id="today-btn" small ion-button (click)="calendar.today()">Jump to Today</button>
+
+  <ion-list (ngModelChange)="getEventsForCalendar()">
+      <div *ngFor="let lev of listedEvents">
+        <div>
+          <button ion-item (click)="eventPreview(lev.key)" [value]="lev.key">
+            {{lev["title"]}}
+          </button>
+        </div>
+        <ng-template #unselectedOption>
+          <ion-option [value]="lev.key">{{lev["title"]}}</ion-option>
+        </ng-template>
+      </div>
+  </ion-list>
+
+</ion-content>
